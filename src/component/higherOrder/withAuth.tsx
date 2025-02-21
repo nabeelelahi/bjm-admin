@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { AuthRouteProps, RouteTypes } from "../../types";
-import { Navigate } from "react-router-dom";
-import { getStorageData } from "../../helper";
+// import { Navigate } from "react-router-dom";
+// import { getStorageData } from "../../helper";
 
 export const withAuthGuard = (
   WrappedComponent: React.FC,
   type: RouteTypes = RouteTypes.PRIVATE
 ) => {
+  console.log(type)
   return (props: AuthRouteProps) => {
     // const [user] = useState(getStorageData("user"));
     // if (type === RouteTypes.AUTH) {
