@@ -1,9 +1,9 @@
 import { MenuUnfoldOutlined, MenuFoldOutlined, UserOutlined } from '@ant-design/icons'
 import { Button, Dropdown, Avatar } from 'antd'
 import { menu } from './sidebarLink'
-import DarkModeToggle from "react-dark-mode-toggle";
+// import DarkModeToggle from "react-dark-mode-toggle";
 import { Header } from 'antd/es/layout/layout';
-import { useTheme } from '../../../context/Themeprovider';
+// import { useTheme } from '../../../context/Themeprovider';
 import { useColors } from '../../../config/color';
 
 
@@ -16,7 +16,7 @@ type Props = {
 }
 
 function Headers({ collapsed, setCollapsed, drawerVisible, setDrawerVisible, isMobile }: Props) {
-    const { isDarkMode, toggleTheme } = useTheme() as any;
+    // const { isDarkMode, toggleTheme } = useTheme() as any;
     const colors = useColors();
 
     return (
@@ -32,11 +32,11 @@ function Headers({ collapsed, setCollapsed, drawerVisible, setDrawerVisible, isM
                 }}
             />
             <div className='flex gap-4 items-center'>
-                <DarkModeToggle
+                {/* <DarkModeToggle
                     onChange={() => toggleTheme()}
                     checked={isDarkMode}
                     size={50}
-                />
+                /> */}
                 <Dropdown overlay={menu}>
                     <Avatar className="cursor-pointer" style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
                 </Dropdown>
