@@ -4,7 +4,7 @@ import SalesChart from "../component/partial/Chart";
 import { useColors } from "../config/color";
 import Statistics from "../component/partial/Statistics";
 import { statistics } from "../config/dummy-data/home";
-import { PieChart } from "react-minimal-pie-chart";
+// import { PieChart } from "react-minimal-pie-chart";
 import LayoutAdmin from "../component/partial/Layout";
 import Text from "../component/higherOrder/Text";
 
