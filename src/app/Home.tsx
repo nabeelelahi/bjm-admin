@@ -48,11 +48,11 @@ const Dashboard: React.FC = () => {
             backgroundColor: colors.backgroundColor,
           }}
         >
-          <Text text="Booking" className="text-xl mb-4 roboto-semibold" />
+          <Text text="Passports" className="text-xl mb-4 roboto-semibold" />
           <SalesChart />
         </div>
       </div>
-      <div className="grid lg:grid-cols-2 gap-4">
+      {/* <div className="grid lg:grid-cols-2 gap-4">
         <div
           className="p-6 rounded-[20px] mb-6 "
           style={{
@@ -70,7 +70,7 @@ const Dashboard: React.FC = () => {
             ]}
           />
         </div>
-      </div>
+      </div> */}
     </LayoutAdmin>
   );
 };

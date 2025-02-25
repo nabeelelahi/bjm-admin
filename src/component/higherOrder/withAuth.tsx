@@ -20,7 +20,7 @@ export const withAuthGuard = (
     //   // @ts-ignore
     //   return <WrappedComponent {...props} />;
     // }
-    // @ts-ignore
+    // @ts-expect-error @ts-ignore
     return <WrappedComponent {...props} />;
   };
 };
