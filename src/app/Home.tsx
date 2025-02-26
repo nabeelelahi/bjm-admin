@@ -1,7 +1,7 @@
 import React from "react";
 import { Row } from "antd";
 // import SalesChart from "../component/partial/Chart";
-import { useColors } from "../config/color";
+// import { useColors } from "../config/color";
 import Statistics from "../component/partial/Statistics";
 import { statistics } from "../config/dummy-data/home";
 // import { PieChart } from "react-minimal-pie-chart";
@@ -11,7 +11,7 @@ import { userColumns } from "../config";
 import CustomTable from "../component/shared/Table";
 
 const Dashboard: React.FC = () => {
-  const colors = useColors();
+  // const colors = useColors();
 
   // useRequestHook({
   //     url: '/products',
