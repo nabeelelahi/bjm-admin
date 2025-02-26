@@ -1,6 +1,6 @@
 import React from "react";
 import { Row } from "antd";
-import SalesChart from "../component/partial/Chart";
+// import SalesChart from "../component/partial/Chart";
 import { useColors } from "../config/color";
 import Statistics from "../component/partial/Statistics";
 import { statistics } from "../config/dummy-data/home";
