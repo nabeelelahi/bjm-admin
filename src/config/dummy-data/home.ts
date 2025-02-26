@@ -1,8 +1,8 @@
 export const statistics = [
     { title: "Total Users", value: "200", change: "+10%" },
     { title: "Active Users", value: "100", change: "+20%" },
-    { title: "Passport Completed", value: "600", change: "-20%" },
-    { title: "Document Uploaded", value: "100", change: "+10%" },
+    { title: "Passports Completed", value: "600", change: "-20%" },
+    { title: "Documents Uploaded", value: "100", change: "+10%" },
 ];
 
 export const data = [

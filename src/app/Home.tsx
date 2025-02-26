@@ -7,6 +7,8 @@ import { statistics } from "../config/dummy-data/home";
 // import { PieChart } from "react-minimal-pie-chart";
 import LayoutAdmin from "../component/partial/Layout";
 import Text from "../component/higherOrder/Text";
+import { userColumns } from "../config";
+import CustomTable from "../component/shared/Table";
 
 const Dashboard: React.FC = () => {
   const colors = useColors();
@@ -30,7 +32,12 @@ const Dashboard: React.FC = () => {
           <Statistics {...stat} />
         ))}
       </Row>
-      <div className="grid lg:grid-cols-2 gap-4">
+      <CustomTable
+        title="Active Users"
+        columns={userColumns(() => { })}
+        data={[]}
+      />
+      {/* <div className="grid lg:grid-cols-2 gap-4">
         <div
           className="p-6 rounded-[20px] mb-6"
           style={{
@@ -51,7 +58,7 @@ const Dashboard: React.FC = () => {
           <Text text="Passports" className="text-xl mb-4 roboto-semibold" />
           <SalesChart />
         </div>
-      </div>
+      </div> */}
       {/* <div className="grid lg:grid-cols-2 gap-4">
         <div
           className="p-6 rounded-[20px] mb-6 "
