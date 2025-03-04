@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import Server from "../config/constants/server";
-import { encryptData } from "../helper";
+import { encryptData, getStorageData } from "../helper";
 import { ResponseError } from "../types";
 
 interface CustomAxiosRequestConfig extends AxiosRequestConfig {
@@ -138,9 +138,9 @@ export class RequestSingleton {
   }
 
   private addAuthHeader(): void {
-    const token = localStorage.getItem("accessToken");
-    if (token) {
-      let access_token = encryptData(token);
+    const access_token = localStorage.getItem("access-token");
+    if (access_token) {
+      // let access_token = (token);
       this.config.headers = {
         ...this.config.headers,
         Authorization: `Bearer ${access_token}`,

@@ -141,10 +141,6 @@ export function useRequest<T>(
     }
   }, []);
 
-  useEffect(() => {
-    console.log("loading....", loading);
-  }, [loading]);
-
   return {
     data,
     loading,

@@ -3,12 +3,15 @@ import { Button, Form, Modal } from 'antd'
 import { userForm } from '../../../config/form/user'
 import BaseInput, { BaseInputProps } from '../../shared/BaseInput'
 
-function AddUserModal({ open, setOpen }: any) {
+function AddUserModal({ open, setOpen, updateData, setUpdateData }: any) {
     return (
         <Modal
             title={'Add User'}
             open={open}
-            onCancel={() => setOpen(false)}
+            onCancel={() => {
+                setOpen(false)
+                setUpdateData(null)
+            }}
             footer={null}
             centered
         >

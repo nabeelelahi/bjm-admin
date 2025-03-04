@@ -1,8 +1,8 @@
 export default {
     // local
-    // baseUrl: "http://localhost:3335/",
+    baseUrl: "http://localhost:3001/api",
     // production
-    baseUrl: "https://amusing-reflection-production.up.railway.app/api",
+    // baseUrl: "https://amusing-reflection-production.up.railway.app/api",
     imageUrl: function (url: string): string {
         return this.baseUrl + url
     },

@@ -23,15 +23,13 @@ export const useAuth = () => {
 
   const login = (values: { idenfier: string; password: string }) => {
     setLoading(true);
-    navigate("/dashboard");
-    return
     request(loginRoute.url, loginRoute.method)
       .setAuth(false)
       .setBody({ ...values, device: "web", device_token: "1234567890" }, "json")
       .onSuccess((data, headers) => {
         setLoading(false);
         setStorageData("user", data);
-        setStorageData("accessToken", headers.access_token);
+        localStorage.setItem("access-token", headers["access-token"]);
         navigate("/dashboard");
       })
       // @ts-expect-error @ts-ignore

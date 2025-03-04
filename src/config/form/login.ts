@@ -1,7 +1,7 @@
 export const loginFields = [
     {
         title: 'Email',
-        name: 'idenfier',
+        name: 'email',
         // icon: 'icons/email.png',
         rules: [{ required: true, message: 'Please input your email!' }],
         type: 'text',
