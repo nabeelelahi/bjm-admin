@@ -8,7 +8,6 @@ import CustomButton from "./CustomButton";
 
 type CustomTableProps = {
   columns?: any;
-  data?: any;
   loading?: boolean;
   pagination?: any;
   onPaginationChange?: any;
@@ -16,18 +15,19 @@ type CustomTableProps = {
   onClick?: (record: any) => void;
   onButtonClick?: () => void;
   buttonText?: string;
+  data: any
 };
 
 const CustomTable = ({
   title,
   columns,
-  data,
   loading,
   pagination,
   onPaginationChange,
   onClick,
   onButtonClick,
   buttonText,
+  data
 }: CustomTableProps) => {
   const colors = useColors();
   const { isDarkMode } = useTheme();
@@ -44,29 +44,33 @@ const CustomTable = ({
           />
         )}
       </div>
-      <Table
-        className={`w-full overflow-auto ${
-          isDarkMode ? "table-dark-mode" : "table-light-mode"
-        }`}
-        style={{
-          color: colors.TextColor,
-          backgroundColor: colors.backgroundColor,
-          borderColor: colors.boxshadow,
-        }}
-        scroll={{ x: 800 }}
-        columns={columns}
-        dataSource={data}
-        loading={loading}
-        pagination={pagination}
-        onChange={onPaginationChange}
-        onRow={(record) => {
-          return {
-            onClick: () => {
-              onClick?.(record);
-            },
-          };
-        }}
-      />
+      {
+        loading ?
+          <div>Loading...</div>
+          :
+          <Table
+            className={`w-full overflow-auto ${isDarkMode ? "table-dark-mode" : "table-light-mode"
+              }`}
+            style={{
+              color: colors.TextColor,
+              backgroundColor: colors.backgroundColor,
+              borderColor: colors.boxshadow,
+            }}
+            scroll={{ x: 800 }}
+            columns={columns}
+            dataSource={data}
+            loading={loading}
+            pagination={pagination}
+            onChange={onPaginationChange}
+            onRow={(record) => {
+              return {
+                onClick: () => {
+                  onClick?.(record);
+                },
+              };
+            }}
+          />
+      }
     </div>
   );
 };

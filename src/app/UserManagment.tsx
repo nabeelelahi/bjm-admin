@@ -1,32 +1,36 @@
 import LayoutAdmin from "../component/partial/Layout";
 import { userColumns } from "../config";
-import { useState } from "react";
 import AddUserModal from "../component/partial/Modals/AddUser";
-import TableView from "../component/shared/TableView";
+import CustomTable from "../component/shared/Table";
+import useTableOperations from "../hooks/useTableOperations";
 
 function UserManagment() {
-  const [open, setOpen] = useState(false);
-  const [updateData, setUpdateData] = useState<unknown>();
-
+  const {
+    open,
+    onButtonClick,
+    onEditClick,
+    data,
+    loading,
+    cbCancel,
+    cbSuccess,
+    updateData
+  } = useTableOperations('user')
   return (
     <LayoutAdmin>
-      <TableView
-        title="User Managment"
-        buttonText="Add User"
-        open={open}
-        url="user"
-        method='get'
-        setOpen={setOpen}
-        columns={userColumns(() => { })}
-        updateData={updateData}
-        setUpdateData={setUpdateData}
+      <CustomTable
+        title={'User Management'}
+        buttonText={'Add User'}
+        onButtonClick={onButtonClick}
+        columns={userColumns(onEditClick)}
+        data={data}
+        loading={loading}
       />
-      {open && (
+      {(open === 'post' || open === 'patch') && (
         <AddUserModal
           open={open}
-          setOpen={setOpen}
-          updateData={updateData}
-          setUpdateData={setUpdateData}
+          cbCancel={cbCancel}
+          cbSuccess={cbSuccess}
+          updateData={updateData as { [key: string]: never; }}
         />
       )}
     </LayoutAdmin>

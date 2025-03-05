@@ -14,16 +14,16 @@ export const userForm = [
     ],
     type: "text",
 },
-{
-    label: "Password",
-    name: "password",
-    type: "password",
-    value: 'Bjm@123',
-    rules: [
-        { required: true, message: "Please enter user's password!" },
-    ],
-    disabled: true
-  },
+// {
+//     label: "Password",
+//     name: "password",
+//     type: "password",
+//     value: 'Bjm@123',
+//     rules: [
+//         { required: true, message: "Please enter user's password!" },
+//     ],
+//     disabled: true
+//   },
   {
     label: "Address",
     name: "address",

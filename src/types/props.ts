@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { RouteTypes } from "./general";
-import { ApiRoute } from "./request";
+import { ApiRoute, ResponseData } from "./request";
 
 export type TextComponentProps = {
   text: string;
@@ -29,7 +29,14 @@ export type AuthRouteProps = {
 export type AddBankModalProps = {
   isOpen: boolean;
   setIsOpen: any;
-  cbSuccess: () => void;
+  cbSuccess: (response: { data: never }) => void;
+};
+
+export type AddModalProps = {
+  open: "post" | "patch" | "none";
+  cbCancel: () => void;
+  cbSuccess: (response: ResponseData<unknown>) => void;
+  updateData: { [key: string]: never };
 };
 
 export type PageProps<T> = {

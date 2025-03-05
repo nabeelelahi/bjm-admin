@@ -2,21 +2,30 @@
 import { Button, Form, Modal } from 'antd'
 import { userForm } from '../../../config/form/user'
 import BaseInput, { BaseInputProps } from '../../shared/BaseInput'
+import { AddModalProps } from '../../../types'
+import useFormOperations from '../../../hooks/useFormOperations'
 
-function AddUserModal({ open, setOpen, updateData, setUpdateData }: any) {
+function AddUserModal(props: AddModalProps) {
+
+    const { open, cbCancel, updateData } = props;
+    const { handleFinish, loading } = useFormOperations({ ...props, url: 'user' })
+
+    const onFinish = (values: Record<string, unknown>) => {
+        handleFinish({ ...values, password: 'BJM@123', role: 'user' })
+    }
+
     return (
         <Modal
             title={'Add User'}
-            open={open}
-            onCancel={() => {
-                setOpen(false)
-                setUpdateData(null)
-            }}
+            open={open === 'post' || open === 'patch'}
+            onCancel={cbCancel}
             footer={null}
             centered
         >
             <Form
                 layout='vertical'
+                initialValues={updateData}
+                onFinish={onFinish}
             >
                 {userForm.map((item) => {
                     return (
@@ -26,11 +35,11 @@ function AddUserModal({ open, setOpen, updateData, setUpdateData }: any) {
                             name={item.name}
                             rules={item.rules as never[]}
                         >
-                            <BaseInput {...item as BaseInputProps} />
+                            <BaseInput disabled={open === 'patch' && item.name === 'email'} {...item as BaseInputProps} />
                         </Form.Item>
                     )
                 })}
-                <Button onClick={() => setOpen(false)} >Submit</Button>
+                <Button loading={loading} htmlType='submit' >Submit</Button>
             </Form>
         </Modal>
     )
