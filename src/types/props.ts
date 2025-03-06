@@ -65,3 +65,11 @@ export type PageProps<T> = {
 //     perPage: number;
 //   };
 // };
+
+export type QuestionAnswerDto = {
+  _id: string;
+  title: string;
+  description: string;
+  parent: string | null;
+  user: { [key: string]: string };
+};

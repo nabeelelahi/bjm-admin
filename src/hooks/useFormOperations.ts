@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { request } from "../repositories";
 import { AddModalProps } from "../types";
+import { notification } from "antd";
 
 function useFormOperations({
   open,
@@ -15,12 +16,22 @@ function useFormOperations({
       const executionContext = request(url, open)
         .setBody(body, "json")
         // @ts-expect-error @ts-ignore
-        .onSuccess(cbSuccess);
+        .onSuccess(cbSuccess)
+        .onFailure(({ data }) => {
+          if (Array.isArray(data.message)) {
+            data.message.forEach((message: string) => {
+              notification.error({
+                message: "Validation Message",
+                description: message,
+              });
+            });
+          }
+        });
       if (open === "patch")
         executionContext.setRouteParams(`${updateData?._id}`);
       executionContext.call();
     } catch (error) {
-      console.log(error);
+      console.log("error", error);
     } finally {
       setLoading(false);
     }

@@ -1,28 +1,40 @@
-import { useState } from "react";
 import LayoutAdmin from "../component/partial/Layout";
-import CustomTable from "../component/shared/Table";
-import AddPassportModal from "../component/partial/Modals/AddPassport";
 import { passportColumns } from "../config/table/passport";
+import CustomTable from "../component/shared/Table";
+import useTableOperations from "../hooks/useTableOperations";
+import AddPassportModal from "../component/partial/Modals/AddPassport";
 
-export default function Passport() {
-  const [open, setOpen] = useState(false);
-
-
+function Passport() {
+  const {
+    open,
+    onButtonClick,
+    onEditClick,
+    data,
+    loading,
+    cbCancel,
+    cbSuccess,
+    updateData
+  } = useTableOperations('passport')
   return (
     <LayoutAdmin>
       <CustomTable
-        title="Passports"
-        columns={passportColumns}
-        data={[]}
-        buttonText="Add Passport"
-        onButtonClick={() => setOpen(true)}
+        title={'Passports Management'}
+        buttonText={'Add Passports'}
+        onButtonClick={onButtonClick}
+        columns={passportColumns(onEditClick)}
+        data={data}
+        loading={loading}
       />
-      {open && (
+      {(open === 'post' || open === 'patch') && (
         <AddPassportModal
           open={open}
-          setOpen={setOpen}
+          cbCancel={cbCancel}
+          cbSuccess={cbSuccess}
+          updateData={updateData as { [key: string]: never; }}
         />
       )}
     </LayoutAdmin>
   );
 }
+
+export default Passport;

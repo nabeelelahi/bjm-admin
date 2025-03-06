@@ -12,6 +12,7 @@ import Article from "./app/ArticleManagement";
 import Community from "./app/CommunityManagement";
 import DocGuide from "./app/DocGuideManagement";
 import Passport from "./app/PassportManagement";
+import QuestionAnswer from "./app/QuestionAnswer";
 
 const App: React.FC = () => {
   return (
@@ -28,6 +29,7 @@ const App: React.FC = () => {
       <Route path="/passports" element={<Passport />} />
       <Route path="/settings" element={<Settings />} />
       <Route path="/notification" element={<NotificationManagment />} />
+      <Route path="/question-answers" element={<QuestionAnswer />} />
     </Routes>
   );
 };

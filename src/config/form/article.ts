@@ -6,9 +6,9 @@ export const articleForm = [
       type: "text",
     },
     {
-      label: "Community",
-      name: "community",
-      rules: [{ required: true, message: "Please enter community!" }],
+      label: "Tag",
+      name: "tag",
+      rules: [{ required: true, message: "Please enter a tag!" }],
       type: "text",
     },
     {

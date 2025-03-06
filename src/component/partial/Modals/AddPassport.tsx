@@ -2,18 +2,28 @@
 import { Button, Form, Modal } from 'antd'
 import BaseInput, { BaseInputProps } from '../../shared/BaseInput'
 import { passportForm } from '../../../config/form/passport'
+import { AddModalProps } from '../../../types';
+import useFormOperations from '../../../hooks/useFormOperations';
 
-function AddPassportModal({ open, setOpen }: any) {
+function AddPassportModal(props: AddModalProps) {
+    const { open, cbCancel, updateData } = props;
+    const { handleFinish, loading } = useFormOperations({ ...props, url: 'passport' })
+
+    const onFinish = (values: Record<string, unknown>) => {
+        handleFinish(values)
+    }
     return (
         <Modal
             title={'Add Passport'}
-            open={open}
-            onCancel={() => setOpen(false)}
+            open={open === 'post' || open === 'patch'}
+            onCancel={cbCancel}
             footer={null}
             centered
         >
             <Form
                 layout='vertical'
+                onFinish={onFinish}
+                initialValues={updateData}
             >
                 {passportForm.map((item) => {
                     return (
@@ -27,7 +37,7 @@ function AddPassportModal({ open, setOpen }: any) {
                         </Form.Item>
                     )
                 })}
-                <Button onClick={() => setOpen(false)} >Submit</Button>
+                <Button loading={loading} htmlType='submit' >Submit</Button>
             </Form>
         </Modal>
     )

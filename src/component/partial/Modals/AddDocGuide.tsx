@@ -1,20 +1,34 @@
 
-import { Button, Form, Modal } from 'antd'
+import { Button, Form, Modal, notification } from 'antd'
 import BaseInput, { BaseInputProps } from '../../shared/BaseInput'
 import { docGuideForm } from '../../../config/form/docGuide'
+import { AddModalProps } from '../../../types';
+import useFormOperations from '../../../hooks/useFormOperations';
+import useFile from '../../../hooks/useFile';
+import UploadFile from '../../shared/UploadFile';
 
-function AddDocGuide({ open, setOpen }: any) {
+function AddDocGuide(props: AddModalProps) {
+    const { open, cbCancel, updateData } = props;
+    const { handleFinish, loading } = useFormOperations({ ...props, url: 'doc-guide' })
+    const [file, setFile] = useFile(updateData?.image_url || '')
+    const onFinish = (values: Record<string, unknown>) => {
+        if (!file.length) return notification.warning({ message: 'File not found', description: 'Please upload a file' })
+        handleFinish({ ...values, file_url: file })
+    }
     return (
         <Modal
             title={'Add Doc/Guide'}
-            open={open}
-            onCancel={() => setOpen(false)}
+            open={open === 'post' || open === 'patch'}
+            onCancel={cbCancel}
             footer={null}
             centered
         >
             <Form
                 layout='vertical'
+                onFinish={onFinish}
+                initialValues={updateData}
             >
+                <UploadFile type='doc' file={file} setFile={setFile} />
                 {docGuideForm.map((item) => {
                     return (
                         <Form.Item
@@ -27,7 +41,7 @@ function AddDocGuide({ open, setOpen }: any) {
                         </Form.Item>
                     )
                 })}
-                <Button onClick={() => setOpen(false)} >Submit</Button>
+                <Button loading={loading} htmlType='submit'  >Submit</Button>
             </Form>
         </Modal>
     )
