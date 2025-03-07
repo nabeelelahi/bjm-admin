@@ -1,30 +1,30 @@
 export const statistics = [
-    { title: "Total Users", value: "200", change: "+10%" },
-    { title: "Active Users", value: "100", change: "+20%" },
-    { title: "Passports Completed", value: "600", change: "-20%" },
-    { title: "Documents Uploaded", value: "100", change: "+10%" },
+  { title: "Total Users", key: "users" },
+  { title: "Total Articles", key: "articles" },
+  { title: "Total Communities", key: "communities" },
+  { title: "Documents Uploaded", key: "documents" },
 ];
 
 export const data = [
-    {
-        key: '1',
-        name: 'John Brown',
-        age: 32,
-        address: 'New York No. 1 Lake Park',
-        tags: ['nice', 'developer'],
-    },
-    {
-        key: '2',
-        name: 'Jim Green',
-        age: 42,
-        address: 'London No. 1 Lake Park',
-        tags: ['loser'],
-    },
-    {
-        key: '3',
-        name: 'Joe Black',
-        age: 32,
-        address: 'Sydney No. 1 Lake Park',
-        tags: ['cool', 'teacher'],
-    },
+  {
+    key: "1",
+    name: "John Brown",
+    age: 32,
+    address: "New York No. 1 Lake Park",
+    tags: ["nice", "developer"],
+  },
+  {
+    key: "2",
+    name: "Jim Green",
+    age: 42,
+    address: "London No. 1 Lake Park",
+    tags: ["loser"],
+  },
+  {
+    key: "3",
+    name: "Joe Black",
+    age: 32,
+    address: "Sydney No. 1 Lake Park",
+    tags: ["cool", "teacher"],
+  },
 ];

@@ -1,20 +1,34 @@
 
-import { Button, Form, Modal } from 'antd'
+import { Button, Form, Modal, notification } from 'antd'
 import BaseInput, { BaseInputProps } from '../../shared/BaseInput'
 import { communityForm } from '../../../config/form/community'
+import UploadFile from '../../shared/UploadFile'
+import useFile from '../../../hooks/useFile'
+import useFormOperations from '../../../hooks/useFormOperations'
+import { AddModalProps } from '../../../types'
 
-function AddCommunityModal({ open, setOpen }: any) {
+function AddCommunityModal(props: AddModalProps) {
+    const { open, cbCancel, updateData } = props;
+    const { handleFinish, loading } = useFormOperations({ ...props, url: 'community' })
+    const [file, setFile] = useFile(updateData?.image_url || '')
+    const onFinish = (values: Record<string, unknown>) => {
+        if (!file.length) return notification.warning({ message: 'Image not found', description: 'Please upload an image' })
+        handleFinish({ ...values, image_url: file })
+    }
     return (
         <Modal
             title={'Add Community'}
-            open={open}
-            onCancel={() => setOpen(false)}
+            open={open === 'post' || open === 'patch'}
+            onCancel={cbCancel}
             footer={null}
             centered
         >
             <Form
                 layout='vertical'
+                onFinish={onFinish}
+                initialValues={updateData}
             >
+                <UploadFile type='image' file={file} setFile={setFile} />
                 {communityForm.map((item) => {
                     return (
                         <Form.Item
@@ -27,7 +41,7 @@ function AddCommunityModal({ open, setOpen }: any) {
                         </Form.Item>
                     )
                 })}
-                <Button onClick={() => setOpen(false)} >Submit</Button>
+                <Button loading={loading} htmlType='submit' >Submit</Button>
             </Form>
         </Modal>
     )

@@ -1,7 +1,6 @@
 import { EditOutlined } from "@ant-design/icons";
 import { request } from "../../repositories";
 import { Button, Image, Switch } from "antd";
-import CustomButton from "../../component/shared/CustomButton";
 
 export const articleColumns = (
   onEditClick: (params: { [key: string]: never }) => void

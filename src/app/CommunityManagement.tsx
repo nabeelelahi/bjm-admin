@@ -21,7 +21,7 @@ export default function Community() {
     <LayoutAdmin>
       <CustomTable
         title="Communites"
-        columns={communityColumns}
+        columns={communityColumns(onEditClick)}
         data={data}
         loading={loading}
         buttonText="Add Community"
@@ -29,10 +29,10 @@ export default function Community() {
       />
       {(open === 'post' || open === 'patch') && (
         <AddCommunityModal
-        open={open}
-        cbCancel={cbCancel}
-        cbSuccess={cbSuccess}
-        updateData={updateData as { [key: string]: never; }}
+          open={open}
+          cbCancel={cbCancel}
+          cbSuccess={cbSuccess}
+          updateData={updateData as { [key: string]: never; }}
         />
       )}
     </LayoutAdmin>

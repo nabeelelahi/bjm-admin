@@ -1,8 +1,8 @@
 export const communityForm = [
     {
-      label: "Name",
-      name: "name",
-      rules: [{ required: true, message: "Please enter name!" }],
+      label: "Title",
+      name: "title",
+      rules: [{ required: true, message: "Please enter title!" }],
       type: "text",
     },
   ];

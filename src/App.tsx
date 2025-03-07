@@ -29,7 +29,7 @@ const App: React.FC = () => {
       <Route path="/passports" element={<Passport />} />
       <Route path="/settings" element={<Settings />} />
       <Route path="/notification" element={<NotificationManagment />} />
-      <Route path="/question-answers" element={<QuestionAnswer />} />
+      <Route path="/community/:_id" element={<QuestionAnswer />} />
     </Routes>
   );
 };

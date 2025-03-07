@@ -1,7 +1,7 @@
-import React, { Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 import { QuestionAnswerDto } from '../../../types';
 
-function QuestionCard(props: QuestionAnswerDto & { isActive: boolean; setSelectedQuestion: Dispatch<SetStateAction<QuestionAnswerDto>> }) {
+function QuestionCard(props: QuestionAnswerDto & { isActive: boolean; setSelectedQuestion: Dispatch<SetStateAction<QuestionAnswerDto | null>> }) {
     return (
         <li
             key={props._id as string}

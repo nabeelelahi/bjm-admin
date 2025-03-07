@@ -23,6 +23,7 @@ const useTableOperations = (url: string) => {
       setUpdateData(null)
     }
     const onEditClick = (record: { [key: string]: never }) => {
+      console.log(record)
       setUpdateData(record)
       setOpen('patch')
     }

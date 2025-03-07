@@ -9,33 +9,42 @@ import LayoutAdmin from "../component/partial/Layout";
 import Text from "../component/higherOrder/Text";
 import { userColumns } from "../config";
 import CustomTable from "../component/shared/Table";
+import useTableOperations from "../hooks/useTableOperations";
+import Loader from "../component/shared/Loader";
 
 const Dashboard: React.FC = () => {
-  // const colors = useColors();
+  const {
+    onButtonClick,
+    onEditClick,
+    data,
+    loading,
+  } = useTableOperations('user')
+  const {
+    data: stats,
+    loading: statsLoading,
+  } = useTableOperations('dashboard')
 
-  // useRequestHook({
-  //     url: '/products',
-  //     method: 'post',
-  // }).withBody({
-  //     title: 'test product',
-  //     price: 13.5,
-  //     description: 'lorem ipsum set',
-  //     image: 'https://i.pravatar.cc',
-  //     category: 'electronic'
-  // }).call();
-
+  console.log(stats, statsLoading)
   return (
     <LayoutAdmin>
       <Text text="Dashboard" className="text-2xl roboto-semibold mb-4" />
       <Row gutter={16}>
-        {statistics.map((stat) => (
-          <Statistics {...stat} />
-        ))}
+        {
+          statsLoading ?
+            <Loader />
+            :
+            statistics.map((stat) => (
+              // @ts-expect-error @ts-ignore
+              <Statistics value={stats?.[stat.key] as number} key={stat.key} {...stat} />
+            ))
+        }
       </Row>
       <CustomTable
-        title="Active Users"
-        columns={userColumns(() => { })}
-        data={[]}
+        title={'Users'}
+        onButtonClick={onButtonClick}
+        columns={userColumns(onEditClick)}
+        data={data}
+        loading={loading}
       />
       {/* <div className="grid lg:grid-cols-2 gap-4">
         <div
