@@ -1,6 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import Server from "../config/constants/server";
-import { encryptData, getStorageData } from "../helper";
 import { ResponseError } from "../types";
 
 interface CustomAxiosRequestConfig extends AxiosRequestConfig {

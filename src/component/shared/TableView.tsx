@@ -6,10 +6,10 @@ function TableView({
     title,
     buttonText,
     columns,
-    open,
+    // open,
     setOpen,
-    updateData,
-    setUpdateData,
+    // updateData,
+    // setUpdateData,
     url,
     method
 }: {

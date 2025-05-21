@@ -1,6 +1,5 @@
 import { Button, Switch } from "antd";
 import { request } from "../../repositories";
-import CustomButton from "../../component/shared/CustomButton";
 import { EyeOutlined } from "@ant-design/icons";
 
 const onSwithClick = (record: { [key: string]: never }) => {

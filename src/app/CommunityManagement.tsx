@@ -1,4 +1,3 @@
-import { useState } from "react";
 import LayoutAdmin from "../component/partial/Layout";
 import CustomTable from "../component/shared/Table";
 import AddCommunityModal from "../component/partial/Modals/AddCommuntity";

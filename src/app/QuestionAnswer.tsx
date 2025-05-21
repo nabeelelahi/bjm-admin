@@ -71,7 +71,10 @@ export default function QuestionForum() {
                         {questionLoading ? <Loader />
                             :
                             (questions) && questions.map((q) => (
-                                <QuestionCard {...q} isActive={q._id === selectedQuestion?._id} setSelectedQuestion={setSelectedQuestion} />
+                                <QuestionCard {...q} isActive={q._id === selectedQuestion?._id} 
+                                // @ts-expect-error @ts-ignore
+                                setSelectedQuestion={setSelectedQuestion}
+                                 />
                             ))
                         }
                     </ul>
