@@ -2,7 +2,7 @@ export default {
     // local
     // baseUrl: "http://localhost:3001/api",
     // production
-    baseUrl: "http://85.31.232.48/api",
+    baseUrl: "http://85.31.232.48/api/api",
     imageUrl: function (url: string): string {
         return this.baseUrl + url
     },
