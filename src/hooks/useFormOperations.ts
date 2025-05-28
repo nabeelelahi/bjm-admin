@@ -15,9 +15,13 @@ function useFormOperations({
       setLoading(true);
       const executionContext = request(url, open)
         .setBody(body, "json")
-        // @ts-expect-error @ts-ignore
-        .onSuccess(cbSuccess)
+        .onSuccess((...args) => {
+          setLoading(false);
+          // @ts-expect-error @ts-ignore
+          cbSuccess(...args);
+        })
         .onFailure(({ data }) => {
+          setLoading(false);
           if (Array.isArray(data.message)) {
             data.message.forEach((message: string) => {
               notification.error({
@@ -32,8 +36,6 @@ function useFormOperations({
       executionContext.call();
     } catch (error) {
       console.log("error", error);
-    } finally {
-      setLoading(false);
     }
   };
   return { handleFinish, loading };

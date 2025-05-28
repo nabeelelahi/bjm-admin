@@ -1,8 +1,8 @@
 export const statistics = [
-  { title: "Total Users", key: "users" },
-  { title: "Total Articles", key: "articles" },
-  { title: "Total Communities", key: "communities" },
-  { title: "Documents Uploaded", key: "documents" },
+  { title: "Users", key: "users" },
+  { title: "Articles", key: "articles" },
+  { title: "Communities", key: "communities" },
+  { title: "Documents", key: "documents" },
 ];
 
 export const data = [

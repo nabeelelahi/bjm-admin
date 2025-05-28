@@ -39,7 +39,10 @@ function AddUserModal(props: AddModalProps) {
                         </Form.Item>
                     )
                 })}
-                <Button loading={loading} htmlType='submit' >Submit</Button>
+                <Button
+                    className={`rounded-[8px] h-[40px] roboto-medium px-8 text-white border-0 hover:!text-white`}
+                    style={{ backgroundColor: '#0B6990' }}
+                    loading={loading} htmlType='submit' >Submit</Button>
             </Form>
         </Modal>
     )

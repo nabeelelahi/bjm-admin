@@ -23,7 +23,7 @@ function Sidebar({ collapsed, setCollapsed }: any) {
         className="text-center py-4 text-xl roboto-bold"
         style={{ color: colors.TextColor }}
       >
-        {collapsed ? "D" : "Dashboard"}
+        {collapsed ? "BJM" : "BJM ADMIN"}
       </div>
       {renderMenu()}
     </Sider>

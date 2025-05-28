@@ -1,4 +1,4 @@
-import { UserOutlined, LogoutOutlined } from "@ant-design/icons";
+import { LogoutOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useColors } from "../../../config/color";
@@ -39,12 +39,12 @@ export const renderMenu = () => {
           label: (
             <p
               className={`roboto-regular ${isDarkMode
-                  ? active
-                    ? "text-[#fff] roboto-medium"
-                    : "text-[#fff] roboto-regular"
-                  : active
-                    ? "text-[#fff] roboto-medium"
-                    : "text-[#000] roboto-regular"
+                ? active
+                  ? "text-[#fff] roboto-medium"
+                  : "text-[#fff] roboto-regular"
+                : active
+                  ? "text-[#fff] roboto-medium"
+                  : "text-[#000] roboto-regular"
                 }`}
             >
               {item.label}
@@ -60,10 +60,10 @@ export const renderMenu = () => {
 
 export const menu = (
   <Menu>
-    <Menu.Item key="1" icon={<UserOutlined />}>
-      Profile
-    </Menu.Item>
-    <Menu.Item key="2" icon={<LogoutOutlined />}>
+    <Menu.Item onClick={() => {
+      localStorage.clear();
+      location.href = '/'
+    }} key="2" icon={<LogoutOutlined />}>
       Logout
     </Menu.Item>
   </Menu>

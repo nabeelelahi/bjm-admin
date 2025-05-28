@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./app/Home";
 import Settings from "./app/Setting";
 import Login from "./app/Auth/login";
@@ -17,6 +17,7 @@ import QuestionAnswer from "./app/QuestionAnswer";
 const App: React.FC = () => {
   return (
     <Routes>
+      <Route path="/" element={<Navigate  to='/login' />} />
       <Route path="/login" element={<Login />} />
       <Route path="/forgot-password" element={<Forgotpassword />} />
       <Route path="/otp" element={<Otp />} />
