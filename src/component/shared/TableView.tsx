@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction } from 'react'
 import CustomTable from './Table';
 import { useRequest } from '../../hooks/useRequest';
+import Loader from './Loader';
 
 function TableView({
     title,
@@ -28,7 +29,7 @@ function TableView({
     });
     if (loading) {
         return (
-            <div>Loading...</div>
+            <Loader />
         )
     }
     else {

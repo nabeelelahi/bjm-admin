@@ -6,7 +6,7 @@ import { ResponseData } from "../types";
 const useTableOperations = (url: string) => {
     const [open, setOpen] = useState<'post' | 'patch' | 'none'>('none');
     const [updateData, setUpdateData] = useState<{ [key: string]: never; } | null>();
-    const { data, loading, setData } = useRequest(url, 'get', {
+    const { data, loading, setData, pagination, onPaginationChange } = useRequest(url, 'get', {
       type: 'mount'
     });
     const cbSuccess = (response: ResponseData<unknown>) => {
@@ -43,7 +43,9 @@ const useTableOperations = (url: string) => {
         onEditClick,
         data,
         loading,
-        onButtonClick
+        onButtonClick,
+        pagination,
+        onPaginationChange
     }
 
 }

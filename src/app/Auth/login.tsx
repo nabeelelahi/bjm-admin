@@ -32,7 +32,7 @@ function Login() {
               </Form.Item>
             );
           })}
-          <div className="flex justify-between items-center">
+          {/* <div className="flex justify-between items-center">
             <Checkbox className="text-[#5F697D] text-[11px] roboto-regular">
               Remember me
             </Checkbox>
@@ -42,7 +42,7 @@ function Login() {
             >
               Forgot Password ?
             </Link>
-          </div>
+          </div> */}
           <AuthButton htmlType="submit" text={"Login"} loading={loading} />
         </Form>
       </div>

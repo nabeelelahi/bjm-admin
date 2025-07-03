@@ -34,6 +34,7 @@ export const articleColumns = (
       title: "Description",
       dataIndex: "description",
       key: "description",
+      render: (_: string) => <>{`${_.substring(0, 100)}...`}</>
     },
     {
       title: "Action",

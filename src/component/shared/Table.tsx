@@ -5,6 +5,7 @@ import { useTheme } from "../../context/Themeprovider";
 // import { TableProps } from '../../type';
 import Text from "../higherOrder/Text";
 import CustomButton from "./CustomButton";
+import Loader from "./Loader";
 
 type CustomTableProps = {
   columns?: any;
@@ -15,7 +16,8 @@ type CustomTableProps = {
   onClick?: (record: any) => void;
   onButtonClick?: () => void;
   buttonText?: string;
-  data: any
+  data: any;
+  expandable?: object
 };
 
 const CustomTable = ({
@@ -27,7 +29,8 @@ const CustomTable = ({
   onClick,
   onButtonClick,
   buttonText,
-  data
+  data,
+  expandable
 }: CustomTableProps) => {
   const colors = useColors();
   const { isDarkMode } = useTheme();
@@ -46,7 +49,7 @@ const CustomTable = ({
       </div>
       {
         loading ?
-          <div>Loading...</div>
+          <Loader />
           :
           <Table
             className={`w-full overflow-auto ${isDarkMode ? "table-dark-mode" : "table-light-mode"
@@ -59,9 +62,11 @@ const CustomTable = ({
             scroll={{ x: 800 }}
             columns={columns}
             dataSource={data}
+            rowKey={'_id'}
             loading={loading}
             pagination={pagination}
             onChange={onPaginationChange}
+            expandable={expandable ?? {}}
             onRow={(record) => {
               return {
                 onClick: () => {

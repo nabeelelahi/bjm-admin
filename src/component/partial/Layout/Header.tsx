@@ -37,9 +37,9 @@ function Headers({ collapsed, setCollapsed, drawerVisible, setDrawerVisible, isM
                     checked={isDarkMode}
                     size={50}
                 /> */}
-                <Dropdown overlay={menu}>
+                {/* <Dropdown overlay={menu}>
                     <Avatar className="cursor-pointer" style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
-                </Dropdown>
+                </Dropdown> */}
             </div>
         </Header>
     )

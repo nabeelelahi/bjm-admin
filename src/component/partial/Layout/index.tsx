@@ -22,6 +22,7 @@ const LayoutAdmin = ({ children }: { children: React.ReactNode }) => {
           setDrawerVisible={setDrawerVisible}
         />
       ) : (
+        collapsed ? null :
         <Sidebar collapsed={collapsed} setCollapsed={setCollapsed} />
       )}
       <Layout style={{ backgroundColor: colors.background }}>

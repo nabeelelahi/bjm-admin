@@ -6,13 +6,14 @@ import Login from "./app/Auth/login";
 import Forgotpassword from "./app/Auth/forgot-password";
 import Otp from "./app/Auth/otp";
 import Resetpassword from "./app/Auth/reset-password";
-import NotificationManagment from "./app/NotificationManagment";
+import NotificationManagment from "./app/NotificationManagement";
 import UserManagment from "./app/UserManagment";
 import Article from "./app/ArticleManagement";
 import Community from "./app/CommunityManagement";
 import DocGuide from "./app/DocGuideManagement";
 import Passport from "./app/PassportManagement";
 import QuestionAnswer from "./app/QuestionAnswer";
+import ChangePassword from "./app/ChangePassword";
 
 const App: React.FC = () => {
   return (
@@ -29,7 +30,8 @@ const App: React.FC = () => {
       <Route path="/doc-guide" element={<DocGuide />} />
       <Route path="/passports" element={<Passport />} />
       <Route path="/settings" element={<Settings />} />
-      <Route path="/notification" element={<NotificationManagment />} />
+      <Route path="/notifications" element={<NotificationManagment />} />
+      <Route path="/change-password" element={<ChangePassword />} />
       <Route path="/community/:_id" element={<QuestionAnswer />} />
     </Routes>
   );

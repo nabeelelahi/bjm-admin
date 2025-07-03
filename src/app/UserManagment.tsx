@@ -13,7 +13,9 @@ function UserManagment() {
     loading,
     cbCancel,
     cbSuccess,
-    updateData
+    updateData,
+    pagination,
+    onPaginationChange
   } = useTableOperations('user')
   return (
     <LayoutAdmin>
@@ -24,6 +26,8 @@ function UserManagment() {
         columns={userColumns(onEditClick)}
         data={data}
         loading={loading}
+        pagination={pagination}
+        onPaginationChange={onPaginationChange}
       />
       {(open === 'post' || open === 'patch') && (
         <AddUserModal

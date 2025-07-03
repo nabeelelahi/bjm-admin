@@ -13,7 +13,9 @@ export default function Community() {
     loading,
     cbCancel,
     cbSuccess,
-    updateData
+    updateData,
+    pagination,
+    onPaginationChange
   } = useTableOperations('community')
 
   return (
@@ -25,6 +27,8 @@ export default function Community() {
         loading={loading}
         buttonText="Add Community"
         onButtonClick={onButtonClick}
+        pagination={pagination}
+        onPaginationChange={onPaginationChange}
       />
       {(open === 'post' || open === 'patch') && (
         <AddCommunityModal

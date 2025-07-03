@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Sider from "antd/es/layout/Sider";
 import { renderMenu } from "./sidebarLink";
 import { useColors } from "../../../config/color";
+import { Button, Popover } from "antd";
 
 function Sidebar({ collapsed, setCollapsed }: any) {
   const colors = useColors();
+  const [open, setOpen] = useState(false);
+
+  const logout = () => {
+    localStorage.clear();
+    location.href = '/'
+  }
+
+  const handleOpenChange = (newOpen: boolean) => {
+    setOpen(newOpen);
+  };
+
   return (
     <Sider
       trigger={null}
@@ -26,6 +38,18 @@ function Sidebar({ collapsed, setCollapsed }: any) {
         {collapsed ? "BJM" : "BJM ADMIN"}
       </div>
       {renderMenu()}
+      <Popover
+        content={<Button onClick={logout}>Logout</Button>}
+        title="Are you sure you want to logout?"
+        trigger="click"
+        open={open}
+        onOpenChange={handleOpenChange}
+        placement={'bottom'}
+      >
+        <div>
+          <p className="ms-7 cursor-pointer mt-2">Logout</p>
+        </div>
+      </Popover>
     </Sider>
   );
 }

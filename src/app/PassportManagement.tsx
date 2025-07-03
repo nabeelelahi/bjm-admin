@@ -13,7 +13,9 @@ function Passport() {
     loading,
     cbCancel,
     cbSuccess,
-    updateData
+    updateData,
+    pagination,
+    onPaginationChange,
   } = useTableOperations('passport')
   return (
     <LayoutAdmin>
@@ -24,6 +26,8 @@ function Passport() {
         columns={passportColumns(onEditClick)}
         data={data}
         loading={loading}
+        pagination={pagination}
+        onPaginationChange={onPaginationChange}
       />
       {(open === 'post' || open === 'patch') && (
         <AddPassportModal

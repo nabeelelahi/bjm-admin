@@ -13,7 +13,9 @@ export default function Article() {
     loading,
     cbCancel,
     cbSuccess,
-    updateData
+    updateData,
+    pagination,
+    onPaginationChange
   } = useTableOperations('article')
   return (
     <LayoutAdmin>
@@ -24,6 +26,12 @@ export default function Article() {
         loading={loading}
         buttonText="Add Article"
         onButtonClick={onButtonClick}
+        pagination={pagination}
+        onPaginationChange={onPaginationChange}
+        expandable={{
+          expandedRowRender: (record: any) => <p style={{ margin: 0 }}>{record.description}</p>,
+          rowExpandable: (record: any) => record.name !== 'Not Expandable',
+        }}
       />
       {(open === 'post' || open === 'patch') && (
         <AddArticleModal

@@ -1,13 +1,14 @@
 import LayoutAdmin from "../component/partial/Layout";
 import CustomTable from "../component/shared/Table";
-import AddDocGuide from "../component/partial/Modals/AddDocGuide";
-import { docGuideColumns } from "../config/table/docGuide";
 import useTableOperations from "../hooks/useTableOperations";
+import AddNotification from "../component/partial/Modals/AddNotifcation";
+import { notificationColumns } from "../config/table/notification";
 
-export default function DocGuide() {
+export default function Notification() {
   const {
     open,
     onButtonClick,
+    onEditClick,
     data,
     loading,
     cbCancel,
@@ -15,21 +16,21 @@ export default function DocGuide() {
     updateData,
     pagination,
     onPaginationChange
-  } = useTableOperations('doc-guide')
+  } = useTableOperations('notification')
   return (
     <LayoutAdmin>
       <CustomTable
-        title="Doc/Guide"
-        columns={docGuideColumns}
+        title="Notification"
+        columns={notificationColumns(onEditClick)}
         data={data}
         loading={loading}
-        buttonText="Add Doc/Guide"
+        buttonText="Add Notification"
         onButtonClick={onButtonClick}
         pagination={pagination}
         onPaginationChange={onPaginationChange}
       />
       {(open === 'post' || open === 'patch') && (
-        <AddDocGuide
+        <AddNotification
           open={open}
           cbCancel={cbCancel}
           cbSuccess={cbSuccess}

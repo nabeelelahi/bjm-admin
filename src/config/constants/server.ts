@@ -1,8 +1,8 @@
 export default {
     // local
-    // baseUrl: "http://localhost:3001/api",
+    baseUrl: "http://localhost:3000/api",
     // production
-    baseUrl: "https://admin.betweenjobsministry.org/api/api",
+    // baseUrl: "https://admin.betweenjobsministry.org/api/api",
     imageUrl: function (url: string): string {
         return this.baseUrl + url
     },

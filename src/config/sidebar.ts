@@ -23,4 +23,12 @@ export const menuItems = [
     key: "/doc-guide",
     label: "Doc/Guide",
   },
+  {
+    key: "/notifications",
+    label: "Notifications",
+  },
+  {
+    key: "/change-password",
+    label: "Change Password",
+  },
 ];
