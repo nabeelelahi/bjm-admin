@@ -28,7 +28,7 @@ export const userForm = [
     label: "Address",
     name: "address",
     rules: [
-      { required: true, message: "Please enter user's address!" },
+      { required: false, message: "Please enter user's address!" },
     ],
     type: "text",
   },
@@ -36,7 +36,7 @@ export const userForm = [
     label: "Mobile no.",
     name: "mobile_no",
     rules: [
-      { required: true, message: "Please enter user's mobile number!" },
+      { required: false, message: "Please enter user's mobile number!" },
     ],
     type: "text",
   },

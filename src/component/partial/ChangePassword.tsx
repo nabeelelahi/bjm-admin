@@ -1,5 +1,5 @@
 
-import { Button, Form, Modal, notification } from 'antd'
+import { Button, Form, notification } from 'antd'
 import BaseInput, { BaseInputProps } from '../shared/BaseInput'
 import { changePasswordForm } from '../../config/form/changePassword'
 import { useRequest } from '../../hooks/useRequest'

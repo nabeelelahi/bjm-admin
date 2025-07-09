@@ -1,6 +1,6 @@
-import { Form, Checkbox } from "antd";
+import { Form } from "antd";
 import AuthButton from "../../component/partial/AuthButton";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import AuthLayout from "../../component/shared/AuthLayout";
 import BaseInput from "../../component/shared/BaseInput";
 import { loginFields } from "../../config/index";

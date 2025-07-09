@@ -1,6 +1,6 @@
-import { MenuUnfoldOutlined, MenuFoldOutlined, UserOutlined } from '@ant-design/icons'
-import { Button, Dropdown, Avatar } from 'antd'
-import { menu } from './sidebarLink'
+import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
+import { Button } from 'antd'
+// import { menu } from './sidebarLink'
 // import DarkModeToggle from "react-dark-mode-toggle";
 import { Header } from 'antd/es/layout/layout';
 // import { useTheme } from '../../../context/Themeprovider';
