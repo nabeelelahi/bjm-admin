@@ -73,7 +73,7 @@ export function useRequest<T>(
           .onFailure((err: any) => {
             console.log(err, 'err/////////');
             if (apiOptions.cbFailure) apiOptions.cbFailure(err);
-            if (err.statusCode === 401) {
+            if (err.status === 401) {
               notification.error({
                 message: "Unauthorized",
                 description:
@@ -135,8 +135,8 @@ export function useRequest<T>(
     if (options.type === "unmount") {
       return options.type === "unmount"
         ? () => {
-            execute();
-          }
+          execute();
+        }
         : undefined;
     }
   }, []);
