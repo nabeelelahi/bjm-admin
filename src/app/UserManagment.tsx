@@ -8,7 +8,7 @@ function UserManagment() {
   const {
     open,
     onButtonClick,
-    onEditClick,
+    // onEditClick,
     data,
     loading,
     cbCancel,
@@ -23,7 +23,7 @@ function UserManagment() {
         title={'User Management'}
         buttonText={'Add User'}
         onButtonClick={onButtonClick}
-        columns={userColumns(onEditClick)}
+        columns={userColumns()}
         data={data}
         loading={loading}
         pagination={pagination}

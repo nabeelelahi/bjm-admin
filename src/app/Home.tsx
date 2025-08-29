@@ -15,7 +15,7 @@ import Loader from "../component/shared/Loader";
 const Dashboard: React.FC = () => {
   const {
     onButtonClick,
-    onEditClick,
+    // onEditClick,
     data,
     loading,
   } = useTableOperations('user')
@@ -42,7 +42,7 @@ const Dashboard: React.FC = () => {
       <CustomTable
         title={'Users'}
         onButtonClick={onButtonClick}
-        columns={userColumns(onEditClick)}
+        columns={userColumns()}
         data={data}
         loading={loading}
       />

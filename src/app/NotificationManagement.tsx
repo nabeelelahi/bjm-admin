@@ -15,13 +15,14 @@ export default function Notification() {
     cbSuccess,
     updateData,
     pagination,
-    onPaginationChange
+    onPaginationChange,
+    onDeleteClick
   } = useTableOperations('notification')
   return (
     <LayoutAdmin>
       <CustomTable
         title="Notification"
-        columns={notificationColumns(onEditClick)}
+        columns={notificationColumns(onEditClick,onDeleteClick)}
         data={data}
         loading={loading}
         buttonText="Add Notification"

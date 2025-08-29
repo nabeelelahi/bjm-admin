@@ -14,13 +14,14 @@ export default function DocGuide() {
     cbSuccess,
     updateData,
     pagination,
-    onPaginationChange
+    onPaginationChange,
+    onDeleteClick
   } = useTableOperations('doc-guide')
   return (
     <LayoutAdmin>
       <CustomTable
         title="Doc/Guide"
-        columns={docGuideColumns}
+        columns={docGuideColumns(onDeleteClick)}
         data={data}
         loading={loading}
         buttonText="Add Doc/Guide"

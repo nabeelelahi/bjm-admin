@@ -15,13 +15,14 @@ export default function Article() {
     cbSuccess,
     updateData,
     pagination,
-    onPaginationChange
+    onPaginationChange,
+    onDeleteClick
   } = useTableOperations('article')
   return (
     <LayoutAdmin>
       <CustomTable
         title="Article Management"
-        columns={articleColumns(onEditClick)}
+        columns={articleColumns(onEditClick, onDeleteClick)}
         data={data}
         loading={loading}
         buttonText="Add Article"

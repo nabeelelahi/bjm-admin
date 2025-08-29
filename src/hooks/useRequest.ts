@@ -144,6 +144,7 @@ export function useRequest<T>(
   return {
     data,
     loading,
+    setLoading,
     error,
     execute,
     setData,

@@ -16,6 +16,7 @@ function Passport() {
     updateData,
     pagination,
     onPaginationChange,
+    onDeleteClick
   } = useTableOperations('passport')
   return (
     <LayoutAdmin>
@@ -23,7 +24,7 @@ function Passport() {
         title={'Passports Management'}
         buttonText={'Add Passports'}
         onButtonClick={onButtonClick}
-        columns={passportColumns(onEditClick)}
+        columns={passportColumns(onEditClick,onDeleteClick)}
         data={data}
         loading={loading}
         pagination={pagination}

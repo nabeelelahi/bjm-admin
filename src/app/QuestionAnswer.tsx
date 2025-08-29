@@ -6,6 +6,8 @@ import QuestionCard from "../component/partial/QuestionAnswer/QuestionCard";
 import { useRequest } from "../hooks/useRequest";
 import { useParams, useSearchParams } from "react-router-dom";
 import Loader from "../component/shared/Loader";
+import { DeleteOutlined } from "@ant-design/icons";
+import { request } from "../repositories";
 
 const { TextArea } = Input;
 
@@ -19,7 +21,7 @@ export default function QuestionForum() {
             parent: null
         }
     });
-    const { data: answers, loading: answerLoading, execute, setData: setAnswers } = useRequest<QuestionAnswerDto[]>("question-answer", "get", {
+    const { data: answers, loading: answerLoading, execute, setData: setAnswers, setLoading } = useRequest<QuestionAnswerDto[]>("question-answer", "get", {
         type: 'delay'
     });
     const { loading: postAnswerLoading, execute: postAnswer } = useRequest<QuestionAnswerDto[]>("question-answer", "post", {
@@ -49,6 +51,18 @@ export default function QuestionForum() {
         }
     };
 
+      const onDeleteClick = (record: { [key: string]: any }) => {
+        setLoading(true);
+        request("question-answer", 'delete')
+          .setRouteParams(`${record._id}`)
+          .onSuccess(() => {
+            setLoading(false)
+            // @ts-ignore
+            setAnswers(p => p.filter(i => i._id != record._id))
+          })
+          .call()
+      }
+
     useEffect(() => {
         if (selectedQuestion) {
             execute({
@@ -71,10 +85,10 @@ export default function QuestionForum() {
                         {questionLoading ? <Loader />
                             :
                             (questions) && questions.map((q) => (
-                                <QuestionCard {...q} isActive={q._id === selectedQuestion?._id} 
-                                // @ts-expect-error @ts-ignore
-                                setSelectedQuestion={setSelectedQuestion}
-                                 />
+                                <QuestionCard {...q} isActive={q._id === selectedQuestion?._id}
+                                    // @ts-expect-error @ts-ignore
+                                    setSelectedQuestion={setSelectedQuestion}
+                                />
                             ))
                         }
                     </ul>
@@ -108,8 +122,14 @@ export default function QuestionForum() {
                                     answerLoading ? <Loader />
                                         :
                                         (answers?.length) ? answers.map((a) => (
-                                            <div key={a._id} className="text-sm bg-gray-100 p-3 rounded-md border">
-                                                <strong className="text-blue-600">{a.user.name}:</strong> {a.title}
+                                            <div key={a._id} className="text-sm bg-gray-100 rounded-md border p-2 flex items-center justify-between">
+                                                <div className="flex">
+                                                    <strong className="text-blue-600">{a.user.name}:</strong>
+                                                    <p>{a.title}</p>
+                                                </div>
+                                                <Button className="rounded-[8px] bg-[#0B6990] roboto-medium px-3 text-white border-0 hover:!bg-[#0B6990]">
+                                                    <DeleteOutlined color="#fff" onClick={() => onDeleteClick(a)} size={25} />
+                                                </Button>
                                             </div>
                                         ))
                                             : selectedQuestion &&

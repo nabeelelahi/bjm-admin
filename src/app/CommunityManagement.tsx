@@ -15,14 +15,15 @@ export default function Community() {
     cbSuccess,
     updateData,
     pagination,
-    onPaginationChange
+    onPaginationChange,
+    onDeleteClick
   } = useTableOperations('community')
 
   return (
     <LayoutAdmin>
       <CustomTable
         title="Communites"
-        columns={communityColumns(onEditClick)}
+        columns={communityColumns(onEditClick,onDeleteClick)}
         data={data}
         loading={loading}
         buttonText="Add Community"

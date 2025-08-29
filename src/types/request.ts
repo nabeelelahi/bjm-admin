@@ -31,6 +31,7 @@ export type UseRequestReturn<T> = {
   setData: Dispatch<SetStateAction<T>>;
   pagination: TablePaginationConfig | null;
   onPaginationChange: (e: TablePaginationConfig) => void;
+  setLoading: Dispatch<SetStateAction<boolean>>
 };
 
 export type ResponseError = {
