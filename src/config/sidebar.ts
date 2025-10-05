@@ -28,6 +28,10 @@ export const menuItems = [
     label: "Notifications",
   },
   {
+    key: "/user-feedback",
+    label: "User Feedback",
+  },
+  {
     key: "/change-password",
     label: "Change Password",
   },

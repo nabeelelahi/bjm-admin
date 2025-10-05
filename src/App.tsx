@@ -14,6 +14,7 @@ import DocGuide from "./app/DocGuideManagement";
 import Passport from "./app/PassportManagement";
 import QuestionAnswer from "./app/QuestionAnswer";
 import ChangePassword from "./app/ChangePassword";
+import UserFeedBack from "./app/UserFeedback";
 
 const App: React.FC = () => {
   return (
@@ -28,6 +29,7 @@ const App: React.FC = () => {
       <Route path="/articles" element={<Article />} />
       <Route path="/communities" element={<Community />} />
       <Route path="/doc-guide" element={<DocGuide />} />
+      <Route path="/user-feedback" element={<UserFeedBack />} />
       <Route path="/passports" element={<Passport />} />
       <Route path="/settings" element={<Settings />} />
       <Route path="/notifications" element={<NotificationManagment />} />
