@@ -21,6 +21,12 @@ export const docGuideColumns = (
 ) => {
   return [
     {
+      title: "Serial Number",
+      dataIndex: "serial_number",
+      key: "serial_number",
+      render: (_: number) => _ > 99 ? _ : _ > 9 ? `0${_}` : `00${_}`
+    },
+    {
       title: "Title",
       dataIndex: "title",
       key: "title",
