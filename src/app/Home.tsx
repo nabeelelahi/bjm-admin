@@ -18,7 +18,7 @@ const Dashboard: React.FC = () => {
     // onEditClick,
     data,
     loading,
-  } = useTableOperations('user')
+  } = useTableOperations('user?role=user')
   const {
     data: stats,
     loading: statsLoading,

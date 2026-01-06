@@ -16,7 +16,7 @@ function UserManagment() {
     updateData,
     pagination,
     onPaginationChange
-  } = useTableOperations('user')
+  } = useTableOperations('user?role=user')
   return (
     <LayoutAdmin>
       <CustomTable
